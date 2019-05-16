@@ -296,20 +296,19 @@ Here are the course summary as its given on the course [link](https://www.course
    			dw = np.dot(X, dz.T) / m    # Vectorization, dw shape is (Nx, 1)
    			db = dz.sum() / m           # Vectorization, dz shape is (1, 1)
 
-### Notes on Python and NumPy
+### Notes on Python and NumPy about matrix vectorization
 
 - In NumPy, `obj.sum(axis = 0)` sums the columns while `obj.sum(axis = 1)` sums the rows.
 - In NumPy, `obj.reshape(1,4)` changes the shape of the matrix by broadcasting the values.
 - Reshape is cheap in calculations so put it everywhere you're not sure about the calculations.
-- Broadcasting works when you do a matrix operation with matrices that doesn't match for the operation, in this case NumPy automatically makes the shapes ready for the operation by broadcasting the values.
-- In general principle of broadcasting. If you have an (m,n) matrix and you add(+) or subtract(-) or multiply(*) or divide(/) with a (1,n) matrix, then this will copy it m times into an (m,n) matrix. The same with if you use those operations with a (m , 1) matrix, then this will copy it n times into (m, n) matrix. And then apply the addition, subtraction, and multiplication of division element wise.
+- ***Broadcasting*** works when you do a matrix operation with matrices that doesn't match for the operation, in this case NumPy automatically makes the shapes ready for the operation by broadcasting the values.
+- In general principle of broadcasting. ___If you have an (m,n) matrix and you add(+) or subtract(-) or multiply(*) or divide(/) with a (1,n) matrix, then this will copy it m times into an (m,n) matrix.___ ***The same with if you use those operations with a (m , 1) matrix, then this will copy it n times into (m, n) matrix.*** And then apply the addition, subtraction, and multiplication of division element wise.
 - Some tricks to eliminate all the strange bugs in the code:
-  - If you didn't specify the shape of a vector, it will take a shape of `(m,)` and the transpose operation won't work. You have to reshape it to `(m, 1)`
+- ***If you didn't specify the shape of a vector, it will take a shape of `(m,)` and the transpose operation won't work. You have to reshape it to `(m, 1)`***
   - Try to not use the rank one matrix in ANN
-  - Don't hesitate to use `assert(a.shape == (5,1))` to check if your matrix shape is the required one.
-  - If you've found a rank one matrix try to run reshape on it.
-- Jupyter / IPython notebooks are so useful library in python that makes it easy to integrate code and document at the same time. It runs in the browser and doesn't need an IDE to run.
-  - To open Jupyter Notebook, open the command line and call: `jupyter-notebook` It should be installed to work.
+  - ***Don't hesitate to use `assert(a.shape == (5,1))` to check if your matrix shape is the required one.***
+  - ***If you've found a rank one matrix try to run reshape on it***.
+
 - To Compute the derivative of Sigmoid:
 
   ```
@@ -370,6 +369,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 - We will define the neural networks that has one hidden layer.
 - NN contains of input layers, hidden layers, output layers.
+- The number of layers is counted without the input layer. 
 - Hidden layer means we cant see that layers in the training set.
 - `a0 = x` (the input layer)
 - `a1` will represent the activation of the hidden neurons.
@@ -428,7 +428,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 - So far we are using sigmoid, but in some cases other functions can be a lot better.
 - Sigmoid can lead us to gradient decent problem where the updates are so low.
-- Sigmoid activation function range is [0,1]
+- Sigmoid activation function range is [0,1]--especailly useful for the binary classification for the last layer. 
   `A = 1 / (1 + np.exp(-z)) # Where z is the input matrix`
 - Tanh activation function range is [-1,1]   (Shifted version of sigmoid function)
   - In NumPy we can implement Tanh using one of these methods:
