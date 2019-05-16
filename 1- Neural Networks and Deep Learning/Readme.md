@@ -2,6 +2,8 @@
 
 This is the first course of the deep learning specialization at [Coursera](https://www.coursera.org/specializations/deep-learning) which is moderated by [DeepLearning.ai](http://deeplearning.ai/). The course is taught by Andrew Ng.
 
+****" The highlighted notes are my own take-aways."
+
 ## Table of contents
 
 * [Neural Networks and Deep Learning](#neural-networks-and-deep-learning)
@@ -693,3 +695,4 @@ Here are the course summary as its given on the course [link](https://www.course
 <br><br>
 <br><br>
 These Notes were made by [Mahmoud Badry](mailto:mma18@fayoum.edu.eg) @2017
+Notes are edited and updated by [EllaWan](mailto:moggirain@gmail.com) @2019
