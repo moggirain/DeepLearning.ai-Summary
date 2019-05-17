@@ -135,7 +135,7 @@ Here are the course summary as its given on the course [link](https://www.course
 - Training a bigger neural network never hurts.
 
 ### Regularization--(Solution for High Variance)
-
+    “”“  Also known as Shrikage in Statistics"
 - Adding regularization to NN will help it reduce variance (overfitting)
 - L1 matrix norm:
   - `||W|| = Sum(|w[i,j]|)  # sum of absolute values of all w`
@@ -203,7 +203,7 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
   l = 3  # this code is only for layer 3
   # the generated number that are less than 0.8 will be dropped. 80% stay, 20% dropped
   d3 = np.random.rand(a[l].shape[0], a[l].shape[1]) < keep_prob
-
+  
   a3 = np.multiply(a3,d3)   # keep only the values in d3
 
   # increase a3 to not reduce the expected value of output
@@ -211,7 +211,7 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
   a3 = a3 / keep_prob       
   ```
 - Vector d[l] is used for forward and back propagation and is the same for them, but it is different for each iteration (pass) or training example.
-- At test time we don't use dropout. If you implement dropout at test time - it would add noise to predictions.
+- ***At test time we don't use dropout.*** If you implement dropout at test time - it would add noise to predictions.
 
 ### Understanding Dropout
 
@@ -229,7 +229,7 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
 
 - **Data augmentation**:
   - For example in a computer vision data:
-    - You can flip all your pictures horizontally this will give you m more data instances.
+    - You can   this will give you m more data instances.
     - You could also apply a random position and rotation to an image to get more data.
   - For example in OCR, you can impose random rotations and distortions to digits/letters.
   - New data obtained using this technique isn't as good as the real independent data, but still can be used as a regularization technique.
@@ -239,18 +239,20 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
   - We will take these parameters as the best parameters.
     - ![](Images/02-_Early_stopping.png)
   - Andrew prefers to use L2 regularization instead of early stopping because this technique simultaneously tries to minimize the cost function and not to overfit which contradicts the orthogonalization approach (will be discussed further).
+  -Orthogonalization includes optimizing cost function and make sure the model not overfit (etc.,regularization).
   - But its advantage is that you don't need to search a hyperparameter like in other regularization approaches (like `lambda` in L2 regularization).
+  
 - **Model Ensembles**:
   - Algorithm:
     - Train multiple independent models.
-    - At test time average their results.
+    - At test time average their results. ddd
   - It can get you extra 2% performance.
   - It reduces the generalization error.
   - You can use some snapshots of your NN at the training ensembles them and take the results.
 
 ### Normalizing inputs
 
-- If you normalize your inputs this will speed up the training process a lot.
+- If you normalize your inputs this will **speed up** the training process a lot.
 - Normalization are going on these steps:
   1. Get the mean of the training set: `mean = (1/m) * sum(x(i))`
   2. Subtract the mean from each input: `X = X - mean`
