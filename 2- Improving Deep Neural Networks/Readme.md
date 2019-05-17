@@ -57,10 +57,10 @@ Here are the course summary as its given on the course [link](https://www.course
 > After 3 weeks, you will: 
 > - Understand industry best-practices for building deep learning applications. 
 > - Be able to effectively use the common neural network "tricks", including initialization, L2 and dropout regularization, Batch normalization, gradient checking, 
-> - Be able to implement and apply a variety of optimization algorithms, such as mini-batch gradient descent, Momentum, RMSprop and Adam, and check for their convergence. 
+> - Be able to implement and apply a variety of optimization algorithms, such as mini-batch ***gradient descent, Momentum, RMSprop and Adam, and check for their convergence***. 
 > - Understand new best-practices for the deep learning era of how to set up train/dev/test sets and analyze bias/variance
 > - Be able to implement a neural network in TensorFlow. 
->
+> 
 > This is the second course of the Deep Learning Specialization.
 
 
@@ -79,14 +79,23 @@ Here are the course summary as its given on the course [link](https://www.course
 - You will try to build a model upon training set then try to optimize hyperparameters on dev set as much as possible. Then after your model is ready you try and evaluate the testing set.
 - so the trend on the ratio of splitting the models:
   - If size of the  dataset is 100 to 1000000  ==> 60/20/20
-  - If size of the  dataset is 1000000  to INF  ==> 98/1/1 or  99.5/0.25/0.25
+  - ___If size of the  dataset is 1000000  to INF  ==> 98/1/1 or  99.5/0.25/0.25___
 - The trend now gives the training data the biggest sets.
-- Make sure the dev and test set are coming from the same distribution.
+- Make sure the dev and test set are coming from the ***same distribution***.
   - For example if cat training pictures is from the web and the dev/test pictures are from users cell phone they will mismatch. It is better to make sure that dev and test set are from the same distribution.
 - The dev set rule is to try them on some of the good models you've created.
 - Its OK to only have a dev set without a testing set. But a lot of people in this case call the dev set as the test set. A better terminology is to call it a dev set as its used in the development.
 
-### Bias / Variance
+***How to deal with the mismatch dataset or insufficient dataset?***
+
+--Error analysis: Use bridge datset divided from the train dataset as a reference
+--collect more data from the target distribution 
+--Synthesize artificial data
+
+-Source: [link](https://medium.freecodecamp.org/what-to-do-when-your-training-and-testing-data-come-from-different-distributions-d89674c6ecd8)
+
+
+### Bias / Variance Tradeoff
 
 - Bias / Variance techniques are Easy to learn, but difficult to master.
 - So here the explanation of Bias / Variance:
@@ -112,11 +121,11 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Basic Recipe for Machine Learning
 
-- If your algorithm has a high bias:
-  - Try to make your NN bigger (size of hidden units, number of layers)
-  - Try a different model that is suitable for your data.
-  - Try to run it longer.
-  - Different (advanced) optimization algorithms.
+- If your algorithm has a high bias: 
+  - Complex models: Try to make your NN bigger (size of hidden units, number of layers)
+  - Different models: Try a different model that is suitable for your data.
+  - Iteration: Try to run it longer.
+  - Optimization: Different (advanced) optimization algorithms.
 - If your algorithm has a high variance:
   - More data.
   - Try regularization.
@@ -125,7 +134,7 @@ Here are the course summary as its given on the course [link](https://www.course
 - In the older days before deep learning, there was a "Bias/variance tradeoff". But because now you have more options/tools for solving the bias and variance problem its really helpful to use deep learning.
 - Training a bigger neural network never hurts.
 
-### Regularization
+### Regularization--(Solution for High Variance)
 
 - Adding regularization to NN will help it reduce variance (overfitting)
 - L1 matrix norm:
