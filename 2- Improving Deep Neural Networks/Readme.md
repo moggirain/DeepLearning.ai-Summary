@@ -73,7 +73,7 @@ Here are the course summary as its given on the course [link](https://www.course
 - So the idea is you go through the loop: `Idea ==> Code ==> Experiment`.
 - You have to go through the loop many times to figure out your hyperparameters.
 - Your data will be split into three parts:
-  - Training set.       (Has to be the largest set)
+  - Training set.       (Have to be the largest set)
   - Hold-out cross validation set / Development or "dev" set.
   - Testing set.
 - You will try to build a model upon training set then try to optimize hyperparameters on dev set as much as possible. Then after your model is ready you try and evaluate the testing set.
@@ -335,6 +335,7 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
     - if it is < 10^-7  - great, very likely the backpropagation implementation is correct
     - if around 10^-5   - can be OK, but need to inspect if there are no particularly big values in `d_theta_approx - d_theta` vector
     - if it is >= 10^-3 - bad, probably there is a bug in backpropagation implementation
+
 
 ### Gradient checking implementation notes
 
