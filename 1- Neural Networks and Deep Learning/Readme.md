@@ -175,8 +175,7 @@ Here are the course summary as its given on the course [link](https://www.course
   - `w = w - alpha * d(J(w,b) / dw)`        (how much the function slopes in the w direction)
   - `b = b - alpha * d(J(w,b) / db)`        (how much the function slopes in the d direction)
 
-[More resources]
-![Link](https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/)
+[More resources](https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/)
 
 ### Derivatives
 
