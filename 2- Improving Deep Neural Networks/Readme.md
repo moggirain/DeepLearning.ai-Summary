@@ -595,6 +595,7 @@ Implications of L2-regularization on:
 ### The problem of local optima
 
 - The normal local optima is not likely to appear in a deep neural network because data is usually high dimensional. For point to be a local optima it has to be a local optima for each of the dimensions which is highly unlikely.
+- A lot of the gd is not the local minima but the saddle point, which could be concave or convex function. 
 - It's unlikely to get stuck in a bad local optima in high dimensions, it is much more likely to get to the saddle point rather to the local optima, which is not a problem.
 - Plateaus can make learning slow:
   - Plateau is a region where the derivative is close to zero for a long time.
