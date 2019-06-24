@@ -442,6 +442,12 @@ Implications of L2-regularization on:
   3. Make sure that mini-batch fits in CPU/GPU memory.
 - Mini-batch size is a `hyperparameter`.
 
+***Practice***: 
+- One iteration of mini-batch gradient descent (computing on a single mini-batch) is faster than one iteration of batch gradient descen, given Vectorization is not for computing several mini-batches in the same time.
+- There will be some oscillations when you're using mini-batch gradient descent since there could be some noisy data example in batches. However batch gradient descent always guarantees a lower J before reaching the optimal.
+
+
+
 ### Exponentially weighted averages
 
 - There are optimization algorithms that are better than **gradient descent**, but you should first learn about Exponentially weighted averages.
@@ -549,6 +555,7 @@ Implications of L2-regularization on:
 - Stands for **Adaptive Moment Estimation**.
 - Adam optimization and RMSprop are among the optimization algorithms that worked very well with a lot of NN architectures.
 - Adam optimization simply puts RMSprop and momentum together!
+- Adam could be used with mini-batches and batch gradient descent.
 - Pseudo code:
   ```
   vdW = 0, vdW = 0
@@ -595,7 +602,7 @@ Implications of L2-regularization on:
 ### The problem of local optima
 
 - The normal local optima is not likely to appear in a deep neural network because data is usually high dimensional. For point to be a local optima it has to be a local optima for each of the dimensions which is highly unlikely.
-- A lot of the gd is not the local minima but the saddle point, which could be concave or convex function. 
+- A lot of gd is not the local minima but the saddle point, which could be concave or convex function. 
 - It's unlikely to get stuck in a bad local optima in high dimensions, it is much more likely to get to the saddle point rather to the local optima, which is not a problem.
 - Plateaus can make learning slow:
   - Plateau is a region where the derivative is close to zero for a long time.
